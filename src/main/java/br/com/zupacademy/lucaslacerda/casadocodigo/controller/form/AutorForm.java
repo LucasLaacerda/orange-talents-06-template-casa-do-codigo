@@ -6,13 +6,15 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import br.com.zupacademy.lucaslacerda.casadocodigo.validacao.EmailJaRegistradoValid;
+
 public class AutorForm {
 	
-	@NotNull @NotEmpty
+	@NotBlank
 	private String nome;
-	@NotBlank @NotNull @Email
+	@NotBlank @Email @EmailJaRegistradoValid(message="Email informado ja foi cadastrado")
 	private String email;
-	@NotBlank @NotNull @Size(min = 1, max = 400)
+	@NotBlank @Size(min = 1, max = 400)
 	private String descricao;
 	
 	//Apenas getters

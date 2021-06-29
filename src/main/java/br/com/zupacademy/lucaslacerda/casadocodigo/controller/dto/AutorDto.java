@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import br.com.zupacademy.lucaslacerda.casadocodigo.model.Autor;
+import br.com.zupacademy.lucaslacerda.casadocodigo.validacao.EmailJaRegistradoValid;
 
 public class AutorDto {
 	

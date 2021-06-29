@@ -14,6 +14,7 @@ import javax.validation.constraints.Size;
 import com.sun.istack.NotNull;
 
 import br.com.zupacademy.lucaslacerda.casadocodigo.controller.form.AutorForm;
+import br.com.zupacademy.lucaslacerda.casadocodigo.validacao.EmailJaRegistradoValid;
 
 @Entity
 public class Autor {
