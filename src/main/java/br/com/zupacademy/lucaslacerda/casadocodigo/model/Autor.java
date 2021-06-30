@@ -14,7 +14,6 @@ import javax.validation.constraints.Size;
 import com.sun.istack.NotNull;
 
 import br.com.zupacademy.lucaslacerda.casadocodigo.controller.form.AutorForm;
-import br.com.zupacademy.lucaslacerda.casadocodigo.validacao.EmailJaRegistradoValid;
 
 @Entity
 public class Autor {
@@ -35,13 +34,11 @@ public class Autor {
 	public Autor() {
 	}
 	
-	public Autor(Long id, @NotBlank String nome, @NotBlank @Email String email,
-			@NotBlank @Size(min = 1, max = 400) String descricao, LocalDateTime dataRegistro) {
-		this.id = id;
+	public Autor(@NotBlank String nome, @NotBlank @Email String email,
+			@NotBlank @Size(min = 1, max = 400) String descricao) {
 		this.nome = nome;
 		this.email = email;
 		this.descricao = descricao;
-		this.dataRegistro = dataRegistro;
 	}
 
 	public Autor(@Valid AutorForm form) {
@@ -62,7 +59,5 @@ public class Autor {
 	public String getDescricao() {
 		return descricao;
 	}
-	
-	
 	
 }

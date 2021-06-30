@@ -6,13 +6,14 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import br.com.zupacademy.lucaslacerda.casadocodigo.validacao.EmailJaRegistradoValid;
+import br.com.zupacademy.lucaslacerda.casadocodigo.model.Autor;
+import br.com.zupacademy.lucaslacerda.casadocodigo.validacao.RegistroUnicoValid;
 
 public class AutorForm {
 	
 	@NotBlank
 	private String nome;
-	@NotBlank @Email @EmailJaRegistradoValid(message="Email informado ja foi cadastrado")
+	@NotBlank @Email @RegistroUnicoValid(message="Email informado ja foi cadastrado",tabela = "Autor",atributo = "email")
 	private String email;
 	@NotBlank @Size(min = 1, max = 400)
 	private String descricao;
@@ -28,5 +29,7 @@ public class AutorForm {
 		return descricao;
 	}
 	
-	
+	public Autor toModel(AutorForm form) {
+		return new Autor(form);
+	}
 }

@@ -12,11 +12,14 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 @Target({FIELD})
 @Retention(RUNTIME)
-@Constraint(validatedBy = EmailJaRegistradoValidator.class)
-public @interface EmailJaRegistradoValid {
+@Constraint(validatedBy = RegistroUnicoValidator.class)
+public @interface RegistroUnicoValid {
 	
-	String message() default "Email informado ja foi cadastrado"; 
+	String message() default ""; 
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {}; 
     String value() default "";
+    String tabela() default "";
+    String atributo() default "";
+    
 }
