@@ -27,6 +27,7 @@ public class Livro {
 	private Long id;
 	
 	@NotBlank 
+	//@Column(nullable = false,unique = true) Mysql nao ta conseguindo inserir a chave
 	private String titulo;
 	
 	@NotBlank @Size(max=500)
@@ -44,7 +45,7 @@ public class Livro {
 	private Integer numPaginas;
 	
 	@NotBlank 
-	@Column(nullable = false)
+	//@Column(nullable = false,unique = true)
 	private String isbn;
 	
 	@Future @JsonFormat(pattern = "dd-MM-yyyy")
@@ -72,6 +73,14 @@ public class Livro {
 		this.dataPublicacao = dataPublicacao;
 		this.categoria = categoria;
 		this.autor = autor;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public String getTitulo() {
+		return titulo;
 	}
 	
 	
