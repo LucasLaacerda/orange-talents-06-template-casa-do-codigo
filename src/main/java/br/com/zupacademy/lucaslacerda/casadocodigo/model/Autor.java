@@ -28,7 +28,7 @@ public class Autor {
 	@NotBlank @NotNull @Size(min = 1, max = 400)
 	private String descricao;
 	@NotNull
-	LocalDateTime dataRegistro = LocalDateTime.now();
+	private LocalDateTime dataRegistro = LocalDateTime.now();
 	
 	
 	public Autor() {
@@ -47,17 +47,6 @@ public class Autor {
 		this.descricao = form.getDescricao();
 	}
 
-	//Apenas getters de nome, email e descricao
-	public String getNome() {
-		return nome;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
+	
 	
 }

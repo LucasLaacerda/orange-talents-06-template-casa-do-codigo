@@ -7,7 +7,7 @@ import br.com.zupacademy.lucaslacerda.casadocodigo.validacao.RegistroUnicoValid;
 
 public class CategoriaForm {
 	
-	@NotBlank @RegistroUnicoValid(message="Nome informado ja foi cadastrado",tabela = "Categoria",atributo = "nome")
+	@NotBlank @RegistroUnicoValid(message="Nome informado ja foi cadastrado",entidade = Categoria.class,atributo = "nome")
 	private String nome;
 
 	

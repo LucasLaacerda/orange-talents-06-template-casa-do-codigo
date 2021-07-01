@@ -1,14 +1,11 @@
 package br.com.zupacademy.lucaslacerda.casadocodigo.repository;
 
-import java.util.Optional;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.zupacademy.lucaslacerda.casadocodigo.model.Categoria;
+import br.com.zupacademy.lucaslacerda.casadocodigo.model.Livro;
 
 @Repository
-public interface CategoriaRepository extends JpaRepository<Categoria, Long>{
+public interface LivroRepository extends JpaRepository<Livro, Long>{
 
-	
 }

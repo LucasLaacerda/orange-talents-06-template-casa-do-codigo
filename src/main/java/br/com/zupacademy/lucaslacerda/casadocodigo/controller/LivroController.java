@@ -5,36 +5,35 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import br.com.zupacademy.lucaslacerda.casadocodigo.controller.form.AutorForm;
-import br.com.zupacademy.lucaslacerda.casadocodigo.model.Autor;
+
+import br.com.zupacademy.lucaslacerda.casadocodigo.controller.form.LivroForm;
+import br.com.zupacademy.lucaslacerda.casadocodigo.model.Livro;
 import br.com.zupacademy.lucaslacerda.casadocodigo.repository.AutorRepository;
+import br.com.zupacademy.lucaslacerda.casadocodigo.repository.CategoriaRepository;
+import br.com.zupacademy.lucaslacerda.casadocodigo.repository.LivroRepository;
 
 @RestController
-@RequestMapping("/autor")
-public class AutorController {
+@RequestMapping("/livro")
+public class LivroController {
 
 	@Autowired
-	private final AutorRepository autorRepository;
+	LivroRepository livroRepository;
+	@Autowired
+	AutorRepository autorRepository;
+	@Autowired
+	CategoriaRepository categoriaRepository;
 	
-	public AutorController(AutorRepository autorRepository) {
-		this.autorRepository = autorRepository;
-	}
-
 	@PostMapping
 	@Transactional
-	public ResponseEntity<?> cadastrar(@RequestBody @Valid AutorForm form) {
+	public ResponseEntity<?> cadastrar(@RequestBody @Valid LivroForm form) {
 		
-		Autor autor = form.toModel(form);	
-		autorRepository.save(autor);	
+		Livro livro = form.toModel(form,autorRepository,categoriaRepository);	
+		livroRepository.save(livro);	
 		return ResponseEntity.ok().build();	
 	}
-	
-	
 	
 }

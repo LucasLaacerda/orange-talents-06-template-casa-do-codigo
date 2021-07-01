@@ -9,10 +9,9 @@ import org.springframework.stereotype.Repository;
 import br.com.zupacademy.lucaslacerda.casadocodigo.model.Autor;
 
 @Repository
-public interface AutorRepository extends CrudRepository<Autor, Long>{
+public interface AutorRepository extends JpaRepository<Autor, Long>{
 
 	Optional<Autor> findByEmail(String value);
-
 	
 	
 }

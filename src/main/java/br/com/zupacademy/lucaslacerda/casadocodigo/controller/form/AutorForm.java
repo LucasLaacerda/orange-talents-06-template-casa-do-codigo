@@ -13,7 +13,7 @@ public class AutorForm {
 	
 	@NotBlank
 	private String nome;
-	@NotBlank @Email @RegistroUnicoValid(message="Email informado ja foi cadastrado",tabela = "Autor",atributo = "email")
+	@NotBlank @Email @RegistroUnicoValid(message="Email informado ja foi cadastrado",entidade = Autor.class,atributo = "email")
 	private String email;
 	@NotBlank @Size(min = 1, max = 400)
 	private String descricao;

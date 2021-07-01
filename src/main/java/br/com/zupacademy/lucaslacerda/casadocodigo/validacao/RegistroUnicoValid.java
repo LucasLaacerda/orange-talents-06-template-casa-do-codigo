@@ -19,7 +19,7 @@ public @interface RegistroUnicoValid {
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {}; 
     String value() default "";
-    String tabela() default "";
+    Class<?> entidade();
     String atributo() default "";
     
 }

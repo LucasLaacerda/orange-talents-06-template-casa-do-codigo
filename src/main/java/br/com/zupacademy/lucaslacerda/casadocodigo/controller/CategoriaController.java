@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.zupacademy.lucaslacerda.casadocodigo.controller.dto.CategoriaDto;
 import br.com.zupacademy.lucaslacerda.casadocodigo.controller.form.CategoriaForm;
 import br.com.zupacademy.lucaslacerda.casadocodigo.model.Categoria;
 import br.com.zupacademy.lucaslacerda.casadocodigo.repository.CategoriaRepository;
@@ -25,11 +24,11 @@ public class CategoriaController {
 	
 	@PostMapping
 	@Transactional
-	public ResponseEntity<CategoriaDto> cadastrar(@RequestBody @Valid CategoriaForm form) {
+	public ResponseEntity<?> cadastrar(@RequestBody @Valid CategoriaForm form) {
 		
 		Categoria categoria = form.toModel(form);	
 		categoriaRepository.save(categoria);	
-		return ResponseEntity.ok(new CategoriaDto(categoria.getNome()));	
+		return ResponseEntity.ok().build();		
 	}
 	
 }

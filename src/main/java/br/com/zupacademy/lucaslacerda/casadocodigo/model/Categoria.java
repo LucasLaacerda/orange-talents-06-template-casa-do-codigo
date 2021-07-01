@@ -22,12 +22,7 @@ public class Categoria {
 	public Categoria(@NotBlank String nome) {
 		this.nome = nome;
 	}
-	
-	//Apenas get nome
-	public String getNome() {
-		return nome;
-	}
-		
+
 	
 	
 	
