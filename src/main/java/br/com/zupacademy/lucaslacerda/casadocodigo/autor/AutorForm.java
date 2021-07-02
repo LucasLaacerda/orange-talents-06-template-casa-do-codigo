@@ -1,4 +1,4 @@
-package br.com.zupacademy.lucaslacerda.casadocodigo.controller.form;
+package br.com.zupacademy.lucaslacerda.casadocodigo.autor;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -6,7 +6,6 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import br.com.zupacademy.lucaslacerda.casadocodigo.model.Autor;
 import br.com.zupacademy.lucaslacerda.casadocodigo.validacao.RegistroUnicoValid;
 
 public class AutorForm {

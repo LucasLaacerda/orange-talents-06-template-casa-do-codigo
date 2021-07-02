@@ -1,8 +1,7 @@
-package br.com.zupacademy.lucaslacerda.casadocodigo.controller.form;
+package br.com.zupacademy.lucaslacerda.casadocodigo.categoria;
 
 import javax.validation.constraints.NotBlank;
 
-import br.com.zupacademy.lucaslacerda.casadocodigo.model.Categoria;
 import br.com.zupacademy.lucaslacerda.casadocodigo.validacao.RegistroUnicoValid;
 
 public class CategoriaForm {

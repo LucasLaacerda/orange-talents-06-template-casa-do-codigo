@@ -1,7 +1,8 @@
-package br.com.zupacademy.lucaslacerda.casadocodigo.controller.form;
+package br.com.zupacademy.lucaslacerda.casadocodigo.livro;
 
 import java.time.LocalDate;
 
+import javax.persistence.EntityManager;
 import javax.persistence.Lob;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.FutureOrPresent;
@@ -10,15 +11,10 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.ISBN;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import br.com.zupacademy.lucaslacerda.casadocodigo.model.Autor;
-import br.com.zupacademy.lucaslacerda.casadocodigo.model.Categoria;
-import br.com.zupacademy.lucaslacerda.casadocodigo.model.Livro;
-import br.com.zupacademy.lucaslacerda.casadocodigo.repository.AutorRepository;
-import br.com.zupacademy.lucaslacerda.casadocodigo.repository.CategoriaRepository;
+import br.com.zupacademy.lucaslacerda.casadocodigo.autor.Autor;
+import br.com.zupacademy.lucaslacerda.casadocodigo.categoria.Categoria;
 import br.com.zupacademy.lucaslacerda.casadocodigo.validacao.RegistroUnicoValid;
 import br.com.zupacademy.lucaslacerda.casadocodigo.validacao.VerificaIdValid;
 
@@ -78,10 +74,12 @@ public class LivroForm {
 	}
 	
 	
-	public Livro toModel(LivroForm form, AutorRepository ar, CategoriaRepository cr) {
-		return new Livro(form.getTitulo(), form.getResumo(), form.getSumario(), form.getPreco(), 
-					    form.getNumPaginas(),form.getIsbn(), form.getDataPublicacao(), cr.findById(form.getCategoriaId()).get(),
-					    ar.findById(form.getAutorId()).get());
+	public Livro toModel(EntityManager m) {
+		
+		return new Livro(titulo, resumo, sumario, preco, 
+					    numPaginas,isbn, dataPublicacao, 
+					    m.find(Categoria.class, categoriaId),
+					    m.find(Autor.class, autorId));
 	}
 
 	

@@ -1,4 +1,4 @@
-package br.com.zupacademy.lucaslacerda.casadocodigo.model;
+package br.com.zupacademy.lucaslacerda.casadocodigo.livro;
 
 import java.time.LocalDate;
 
@@ -17,6 +17,9 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+
+import br.com.zupacademy.lucaslacerda.casadocodigo.autor.Autor;
+import br.com.zupacademy.lucaslacerda.casadocodigo.categoria.Categoria;
 
 @Entity
 public class Livro {

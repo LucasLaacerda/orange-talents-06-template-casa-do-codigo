@@ -1,8 +1,6 @@
-package br.com.zupacademy.lucaslacerda.casadocodigo.controller.dto;
+package br.com.zupacademy.lucaslacerda.casadocodigo.livro;
 
 import org.springframework.data.domain.Page;
-
-import br.com.zupacademy.lucaslacerda.casadocodigo.model.Livro;
 
 public class LivroDto {
 	

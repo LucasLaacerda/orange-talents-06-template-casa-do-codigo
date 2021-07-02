@@ -1,4 +1,4 @@
-package br.com.zupacademy.lucaslacerda.casadocodigo.model;
+package br.com.zupacademy.lucaslacerda.casadocodigo.autor;
 
 import java.time.LocalDateTime;
 
@@ -12,8 +12,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import com.sun.istack.NotNull;
-
-import br.com.zupacademy.lucaslacerda.casadocodigo.controller.form.AutorForm;
 
 @Entity
 public class Autor {

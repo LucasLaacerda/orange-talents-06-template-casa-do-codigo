@@ -1,5 +1,7 @@
-package br.com.zupacademy.lucaslacerda.casadocodigo.controller;
+package br.com.zupacademy.lucaslacerda.casadocodigo.livro;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +18,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import br.com.zupacademy.lucaslacerda.casadocodigo.controller.dto.LivroDto;
-import br.com.zupacademy.lucaslacerda.casadocodigo.controller.form.LivroForm;
-import br.com.zupacademy.lucaslacerda.casadocodigo.model.Livro;
-import br.com.zupacademy.lucaslacerda.casadocodigo.repository.AutorRepository;
-import br.com.zupacademy.lucaslacerda.casadocodigo.repository.CategoriaRepository;
-import br.com.zupacademy.lucaslacerda.casadocodigo.repository.LivroRepository;
+
+import br.com.zupacademy.lucaslacerda.casadocodigo.autor.AutorRepository;
+import br.com.zupacademy.lucaslacerda.casadocodigo.categoria.CategoriaRepository;
 
 @RestController
 @RequestMapping("/livros")
@@ -29,11 +28,8 @@ public class LivroController {
 
 	@Autowired
 	LivroRepository livroRepository;
-	@Autowired
-	AutorRepository autorRepository;
-	@Autowired
-	CategoriaRepository categoriaRepository;
-	
+	@PersistenceContext
+	private EntityManager manager;
 	
 	@GetMapping
 	@Cacheable(value="listaDeLivros")
@@ -48,7 +44,7 @@ public class LivroController {
 	@CacheEvict(value="listaDeLivros",allEntries = true)
 	public ResponseEntity<?> cadastrar(@RequestBody @Valid LivroForm form) {
 		
-		Livro livro = form.toModel(form,autorRepository,categoriaRepository);	
+		Livro livro = form.toModel(manager);	
 		livroRepository.save(livro);	
 		return ResponseEntity.ok().build();	
 	}
