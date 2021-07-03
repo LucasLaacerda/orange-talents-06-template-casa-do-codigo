@@ -45,6 +45,16 @@ public class Autor {
 		this.descricao = form.getDescricao();
 	}
 
+	//Apenas getters
+	public String getNome() {
+		return nome;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	
 	
 	
 }

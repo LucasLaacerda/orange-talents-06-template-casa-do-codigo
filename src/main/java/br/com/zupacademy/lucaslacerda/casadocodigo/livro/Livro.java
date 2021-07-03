@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import br.com.zupacademy.lucaslacerda.casadocodigo.autor.Autor;
 import br.com.zupacademy.lucaslacerda.casadocodigo.categoria.Categoria;
+import br.com.zupacademy.lucaslacerda.casadocodigo.validacao.VerificaIdValid;
 
 @Entity
 public class Livro {
@@ -84,6 +85,38 @@ public class Livro {
 
 	public String getTitulo() {
 		return titulo;
+	}
+
+	public String getResumo() {
+		return resumo;
+	}
+
+	public String getSumario() {
+		return sumario;
+	}
+
+	public Double getPreco() {
+		return preco;
+	}
+
+	public Integer getNumPaginas() {
+		return numPaginas;
+	}
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+	public LocalDate getDataPublicacao() {
+		return dataPublicacao;
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public Autor getAutor() {
+		return autor;
 	}
 	
 	
