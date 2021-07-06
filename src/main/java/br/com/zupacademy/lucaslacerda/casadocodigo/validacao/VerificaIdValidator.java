@@ -26,6 +26,7 @@ public class VerificaIdValidator implements ConstraintValidator<VerificaIdValid,
 	@Override
 	public boolean isValid(Object value, ConstraintValidatorContext context) {
 		
+		if(value==null) return false;
 	        Query query = em.createQuery("select t from "+this.entidade.getName()+" t where t."+atributo+" = :pValor");
 	        query.setParameter("pValor", value);
 	        List<?> resultList = query.getResultList();
